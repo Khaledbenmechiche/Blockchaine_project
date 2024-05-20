@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
+
+// Déclaration du contrat YnovToken qui hérite des contrats ERC20, ERC20Burnable, AccessControl et ERC20Permit.
+contract YnovToken is ERC20, ERC20Burnable, AccessControl, ERC20Permit {
+    // Définition du rôle MINTER_ROLE pour les adresses autorisées à créer de nouveaux tokens.
+    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+    // Constructeur du contrat YnovToken.
+    constructor(address defaultAdmin, address minter)
+        ERC20("YnovToken", "YT")// Initialisation du nom et du symbole du token.
+        ERC20Permit("YnovToken")// Activation de la gestion des autorisations de signature.
+    {
+        // Attribution des rôles DEFAULT_ADMIN_ROLE et MINTER_ROLE aux adresses spécifiées.
+        _grantRole(DEFAULT_ADMIN_ROLE, defaultAdmin);
+        _grantRole(MINTER_ROLE, minter);
+    }
+
+    function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
+        _mint(to, amount);
+    }
+}

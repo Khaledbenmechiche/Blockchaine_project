@@ -1,0 +1,100 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract GestionDesDiplomes {
+    address public owner;
+
+    // Structure pour représenter un établissement d'enseignement supérieur
+    struct Etablissement {
+        uint ID_Etablissement;
+        string Nom_Etablissement;
+        string Type;
+        string Adresse;
+        string Site_Web;
+        uint ID_Agent;
+    }
+
+    // Structure pour représenter un étudiant
+    struct Etudiant {
+        uint ID_Etudiant;
+        string Nom;
+        string Prenom;
+        string Sexe;
+        string Nationalite;
+        string Statut_civil;
+        string Adresse;
+        string Courriel;
+        string Sujet_PFE;
+        string Entreprise_Stage_PFE;
+        string Evaluation;
+    }
+
+    // Structure pour représenter un diplôme
+    struct Diplome {
+        uint ID_Diplome;
+        uint ID_Titulaire;
+        string Nom_Etablissement_enseignement_superieur;
+        uint ID_EES;
+        string Pays;
+        string Type_Diplome;
+        string Specialite;
+        string Mention;
+        uint Date_obtention;
+    }
+
+   
+    // Mapping pour associer les établissements à leurs comptes
+    mapping(address => Etablissement) public etablissements;
+
+    // Mapping pour associer les étudiants à leurs profils
+    mapping(address => Etudiant) public etudiants;
+
+    // Mapping pour associer les diplômes à leurs titulaires
+    mapping(address => Diplome) public diplomes;
+
+    // Mapping pour enregistrer les adresses des agents d'établissements d'enseignement supérieur
+    mapping(address => bool) public estAgent;
+    
+    // Modificateur pour restreindre l'accès aux agents seulement
+    modifier onlyAgent() {
+        require(estAgent[msg.sender], "Vous n etes pas autorise a effectuer cette operation.");
+        _;
+    }
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    // Fonction permettant à une adresse de devenir un agent
+     function devenirAgent() public {
+        estAgent[msg.sender] = true;
+    }
+
+    // Fonction pour créer un compte d'établissement
+    function creerCompteEtablissement (uint _ID_Etablissement, string memory _Nom_Etablissement, string memory _Type, string memory _Adresse, string memory _Site_Web, uint _ID_Agent) public onlyAgent {
+        etablissements[msg.sender] = Etablissement(_ID_Etablissement, _Nom_Etablissement, _Type, _Adresse, _Site_Web, _ID_Agent);
+    }
+
+    // Fonction pour créer un profil étudiant
+    function creerProfilEtudiant(uint _ID_Etudiant, string memory _Nom, string memory _Prenom, string memory _Sexe,string memory _Nationalite,string memory _Statut_civil,string memory _Adresse,string memory _Courriel,string memory _Sujet_PFE,string memory _Entreprise_Stage_PFE,string memory _Evaluation) public onlyAgent  {
+        etudiants[msg.sender] = Etudiant( 
+        _ID_Etudiant,
+        _Nom,
+        _Prenom,
+        _Sexe,
+        _Nationalite,
+        _Statut_civil,
+        _Adresse,
+        _Courriel,
+        _Sujet_PFE,
+        _Entreprise_Stage_PFE,
+        _Evaluation
+    );
+    }
+
+    // Fonction pour ajouter et assigner un diplôme à un étudiant
+    function ajouterDiplome(uint _ID_Diplome, uint _ID_Titulaire, string memory _Nom_Etablissement_enseignement_superieur, uint _ID_EES, string memory _Pays, string memory _Type_Diplome, string memory _Specialite, string memory _Mention, uint _Date_obtention) public onlyAgent {
+        diplomes[msg.sender] = Diplome(_ID_Diplome, _ID_Titulaire, _Nom_Etablissement_enseignement_superieur, _ID_EES, _Pays, _Type_Diplome, _Specialite, _Mention, _Date_obtention);
+    }
+
+}

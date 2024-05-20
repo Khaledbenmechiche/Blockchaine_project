@@ -1,0 +1,58 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+
+contract RegistreDiplomes {
+    IERC20 public contratToken;
+    uint256 public fraisEvaluation = 10; // Frais pour l'évaluation
+    uint256 public fraisVerification = 5; // Frais pour la vérification
+
+    event DiplomeVerifie(address verificateur, address etudiant, uint256 frais);
+    event EvaluationEffectuee(address evaluateur, address etudiant, uint256 frais);
+
+    constructor(address _adresseContratToken) {
+        contratToken = IERC20(_adresseContratToken);
+    }
+
+    /**
+     * @dev Permet à un agent de recrutement d'évaluer un étudiant et de payer les frais en tokens.
+     * @param etudiant L'adresse de l'étudiant évalué.
+     */
+    function payerEvaluation(address etudiant) public {
+        require(contratToken.allowance(msg.sender, address(this)) >= fraisEvaluation, "Autorisation insuffisante");
+        require(contratToken.balanceOf(msg.sender) >= fraisEvaluation, "Solde insuffisant");
+
+        contratToken.transferFrom(msg.sender, address(this), fraisEvaluation);
+        emit EvaluationEffectuee(msg.sender, etudiant, fraisEvaluation);
+    }
+
+    /**
+     * @dev Permet à un agent de recrutement de vérifier l'authenticité d'un diplôme d'un candidat
+     * et de payer les frais en tokens.
+     * @param etudiant L'adresse de l'étudiant dont le diplôme est vérifié.
+     */
+    function verifierDiplome(address etudiant) public {
+        require(contratToken.allowance(msg.sender, address(this)) >= fraisVerification, "Autorisation insuffisante");
+        require(contratToken.balanceOf(msg.sender) >= fraisVerification, "Solde insuffisant");
+
+        contratToken.transferFrom(msg.sender, address(this), fraisVerification);
+        emit DiplomeVerifie(msg.sender, etudiant, fraisVerification);
+    }
+
+    /**
+     * @dev Permet de définir les frais d'évaluation.
+     * @param frais Frais d'évaluation en tokens.
+     */
+    function definirFraisEvaluation(uint256 frais) public {
+        fraisEvaluation = frais;
+    }
+
+    /**
+     * @dev Permet de définir les frais de vérification de diplôme.
+     * @param frais Frais de vérification en tokens.
+     */
+    function definirFraisVerification(uint256 frais) public {
+        fraisVerification = frais;
+    }
+}

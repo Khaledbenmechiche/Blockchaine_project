@@ -1,0 +1,231 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_adresseContratToken",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "verificateur",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "etudiant",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "frais",
+						"type": "uint256"
+					}
+				],
+				"name": "DiplomeVerifie",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "evaluateur",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "etudiant",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "frais",
+						"type": "uint256"
+					}
+				],
+				"name": "EvaluationEffectuee",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "contratToken",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "frais",
+						"type": "uint256"
+					}
+				],
+				"name": "definirFraisEvaluation",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "frais",
+						"type": "uint256"
+					}
+				],
+				"name": "definirFraisVerification",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "fraisEvaluation",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "fraisVerification",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "etudiant",
+						"type": "address"
+					}
+				],
+				"name": "payerEvaluation",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "etudiant",
+						"type": "address"
+					}
+				],
+				"name": "verifierDiplome",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"definirFraisEvaluation(uint256)": {
+					"details": "Permet de définir les frais d'évaluation.",
+					"params": {
+						"frais": "Frais d'évaluation en tokens."
+					}
+				},
+				"definirFraisVerification(uint256)": {
+					"details": "Permet de définir les frais de vérification de diplôme.",
+					"params": {
+						"frais": "Frais de vérification en tokens."
+					}
+				},
+				"payerEvaluation(address)": {
+					"details": "Permet à un agent de recrutement d'évaluer un étudiant et de payer les frais en tokens.",
+					"params": {
+						"etudiant": "L'adresse de l'étudiant évalué."
+					}
+				},
+				"verifierDiplome(address)": {
+					"details": "Permet à un agent de recrutement de vérifier l'authenticité d'un diplôme d'un candidat et de payer les frais en tokens.",
+					"params": {
+						"etudiant": "L'adresse de l'étudiant dont le diplôme est vérifié."
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ProjetYnov/Entreprise.sol": "RegistreDiplomes"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"contracts/ProjetYnov/Entreprise.sol": {
+			"keccak256": "0x54807ff83a684cd7b714d580e4c5c026058c0d42131fa71555beb455a5d0115b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://df5329e52d75c5d86c2cf2e24637fa9421f803d45bee6fba3e2c747814b98557",
+				"dweb:/ipfs/QmPBTTgQ66QpWmKFUp8jMt5cT7dZu5dqV6dzcut4cWMaW1"
+			]
+		}
+	},
+	"version": 1
+}

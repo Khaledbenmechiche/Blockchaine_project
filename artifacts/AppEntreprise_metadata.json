@@ -1,0 +1,212 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ID_Entreprise",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_Nom",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Secteur",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Date_Creation",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Classification_Taille",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Pays",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Adresse",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Courriel",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Telephone",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Site_Web",
+						"type": "string"
+					}
+				],
+				"name": "creerEntreprise",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "devenirAgent",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "entreprises",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "ID_Entreprise",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "Nom",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Secteur",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Date_Creation",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Classification_Taille",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Pays",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Adresse",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Courriel",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Telephone",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Site_Web",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "estAgent",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ProjetYnov/Entreprise.sol": "AppEntreprise"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ProjetYnov/Entreprise.sol": {
+			"keccak256": "0x36d29b27c01d1e40ebbdec8fafb982626ee851b45917165221a63db3d3f2b0b7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3bc2cea561d901ccb38a1de5377fe37e6d699ed8b9ea672423d7d80c9e4f49d8",
+				"dweb:/ipfs/Qma43jzf3HzTKU2dagR8DXmFdnpPsg839RnBpNszCWFGu1"
+			]
+		}
+	},
+	"version": 1
+}

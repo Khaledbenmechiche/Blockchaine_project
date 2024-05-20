@@ -1,0 +1,212 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ID_Entreprise",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_Nom",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Secteur",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Date_Creation",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Classification_Taille",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Pays",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Adresse",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Courriel",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Telephone",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_Site_Web",
+						"type": "string"
+					}
+				],
+				"name": "creerEntreprise",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "devenirAgent",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "entreprises",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "ID_Entreprise",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "Nom",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Secteur",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Date_Creation",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Classification_Taille",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Pays",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Adresse",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Courriel",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Telephone",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "Site_Web",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "estAgent",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ProjetYnov/Entreprise.sol": "Entreprise"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ProjetYnov/Entreprise.sol": {
+			"keccak256": "0x03eb8b096fa1d1b2b3a1fe90b58a545eca1a6568a03375095796d05046e3b7bf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a2b8c9626b7e14d45eecd66bf1ccbdd2ca0b5b8d5e77b8d4ffdc1abb4afd1d50",
+				"dweb:/ipfs/QmdVc4RUTN66L7hXgDnMvPWvcYjNFm5KsWhYLAoYyvcXct"
+			]
+		}
+	},
+	"version": 1
+}
